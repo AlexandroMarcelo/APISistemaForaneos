@@ -12,7 +12,7 @@ app.secret_key='12345'
 
 @app.route('/')
 def root():
-    return "Hello, Im the API of the ITESM Students Exchange System."
+    return "<h1>Hello, Im the API of the ITESM Students Exchange System.</h1>"
 
 @app.route('/user_grades/<string:studentID>', methods=['GET'])
 def user_grades(studentID):

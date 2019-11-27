@@ -10,6 +10,10 @@ apiGrades = GradesAPI.GradesAPI()
 app = Flask(__name__)
 app.secret_key='12345'
 
+@app.route('/')
+def root():
+    return "Hello, Im the API of the ITESM Students Exchange System."
+
 @app.route('/user_grades/<string:studentID>', methods=['GET'])
 def user_grades(studentID):
     #query = {'user': apiGrades.get_user_grades('A01021383@itesm.mx', 1)}

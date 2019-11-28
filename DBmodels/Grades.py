@@ -153,21 +153,13 @@ class Grades(object):
                 print("AOSNDOSN")
                 print(document)
                 print(student_in)
-                if student_in:
-                    aux = 0
-                    for student_found in student_in:
-                        if student_found['class'] == document['class']:
-                            aux = 1
-                    if aux == 0: #not inserted
-                        cursor = self.user_collection.insert_one(document)
-                        if cursor.inserted_id is not None:
-                            return 1 #inserted correctly
-                        else:
-                            return -1 #not inserted
-                    else:
-                        return -4
-                else: 
-                    return -4
+                
+                cursor = self.user_collection.insert_one(document)
+                if cursor.inserted_id is not None:
+                    return 1 #inserted correctly
+                else:
+                    return -1 #not inserted
+                    
             else: #student no exists in class
                 return -2 #student is not in the class
         else:

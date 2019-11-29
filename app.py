@@ -23,7 +23,9 @@ def user_grades(studentID):
 @app.route('/get_user_password/<string:studentID>', methods=['GET'])
 def get_user_password(studentID):
     password_user = apiGrades.get_password_user(studentID)
-    return password_user.decode('UTF-8')
+    if password_user == False:
+        return jsonify({'password':'False'})
+    return jsonify({'password':password_user.decode('UTF-8')})
     
 @app.route('/teacher_name/<string:email>', methods=['GET'])
 def teacher_name(email):
